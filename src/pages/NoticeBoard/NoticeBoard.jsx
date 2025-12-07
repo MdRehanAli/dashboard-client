@@ -2,15 +2,33 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FaAngleLeft } from 'react-icons/fa';
 import DragNDrop from '../../components/DragNDrop/DragNDrop';
+import Swal from 'sweetalert2';
 
 const NoticeBoard = () => {
 
     const {
         register,
-        handleSubmit,
-        watch,
-        formState: { errors },
+        handleSubmit
     } = useForm()
+
+    const handleNoticePublish = (data) => {
+        console.log(data);
+
+        Swal.fire({
+            title: "Notice Published Successfully?",
+            text: "Your notice “Holiday Schedule  November 2025” has been published and is now visible to all selected departments.",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "View Notice",
+            denyButtonText: `Create Another`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire("Saved!", "", "success");
+            } else if (result.isDenied) {
+                Swal.fire("Changes are not saved", "", "info");
+            }
+        });
+    }
 
     return (
         <div className='m-6'>
@@ -24,17 +42,17 @@ const NoticeBoard = () => {
             {/* Main Section  */}
             <div >
 
-                <form>
+                <form onSubmit={handleSubmit(handleNoticePublish)}>
                     <div className="border border-[#9096b1] rounded-xl bg-white ">
                         <p className='px-4 py-6 bg-[#fafafd] rounded-xl'>Please fill in the details below</p>
                         <fieldset className='p-6 pb-10'>
                             {/* Departments */}
                             <fieldset className="fieldset bg-[#fafafd] p-6 rounded-lg">
                                 <label className="label text-[14px] text-black"><span className="text-red-600">*</span> Target Department(s) or Individual</label>
-                                <select {...register('department', { required: true })} defaultValue="Pick a Department" className="select w-full">
-                                    <option disabled={true}>Pick a Region</option>
-                                    <option value="">Department</option>
-                                    <option value="">Individual</option>
+                                <select {...register('department', { required: true })} defaultValue="Department" className="select w-full">
+                                    <option disabled={true}>Pick a Department</option>
+                                    <option value="Department">Department</option>
+                                    <option value="Individual">Individual</option>
                                 </select>
                             </fieldset>
 
@@ -55,9 +73,9 @@ const NoticeBoard = () => {
                                     <input type="text" {...register('employeeName', { required: true })} className="input w-full" placeholder="Enter employee full name" />
                                 </div>
                                 <div className='w-full'>
-                                    {/* Employee Name  */}
+                                    {/* Employee Position  */}
                                     <label className="label text-[14px] text-black mt-6 mb-2"><span className="text-red-600">*</span> Position</label>
-                                    <input type="text" {...register('employeeName', { required: true })} className="input w-full" placeholder="Select employee department" />
+                                    <input type="text" {...register('employeePosition', { required: true })} className="input w-full" placeholder="Select employee department" />
                                 </div>
                             </div>
 
@@ -68,8 +86,8 @@ const NoticeBoard = () => {
                                         <label className="label text-[14px] text-black mb-2"><span className="text-red-600">*</span> Notice Type</label>
                                         <select {...register('noticeType', { required: true })} defaultValue="Pick a Department" className="select w-full">
                                             <option disabled={true}>Select Notice Type</option>
-                                            <option value="">Department</option>
-                                            <option value="">Individual</option>
+                                            <option value="leave">Leave</option>
+                                            <option value="bonus">Bonus</option>
                                         </select>
                                     </fieldset>
                                 </div>
@@ -92,8 +110,8 @@ const NoticeBoard = () => {
                         </fieldset>
                     </div>
                     <div className='flex justify-center md:justify-end gap-4 mt-8 flex-wrap'>
-                        <input type="submit" className='btn rounded-[56px] border border-[#595F7A] px-8' value="Cancel" />
-                        <input type="submit" className='btn rounded-[56px] text-[#3B82F6] border border-[#3B82F6] px-8' value="Save as Draft" />
+                        {/* <input type="submit" className='btn rounded-[56px] border border-[#595F7A] px-8' value="Cancel" />
+                        <input type="submit" className='btn rounded-[56px] text-[#3B82F6] border border-[#3B82F6] px-8' value="Save as Draft" /> */}
                         <input type="submit" className='btn rounded-[56px] text-[#F95524] border border-[#F95524] px-8' value="Publish Notice" />
                     </div>
                 </form>
