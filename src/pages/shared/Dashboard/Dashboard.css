@@ -1,0 +1,6 @@
+.active {
+    border-right: 2px solid #FF3E01;
+    border-radius: 6px;
+    box-shadow: 7px 5px 2px 0px rgba(0, 0, 0, 0), 5px 3px 2px 0px rgba(0, 0, 0, 0.01), 3px 2px 2px 0px rgba(0, 0, 0, 0.02), 1px 1px 1px 0px rgba(0, 0, 0, 0.03), 0px 0px 1px 0px rgba(0, 0, 0, 0.04);
+    /* background: var(--Background-Background, rgba(245, 246, 250, 1)); */
+}

@@ -1,9 +1,11 @@
 import React from 'react';
+import NoticeBoard from '../../NoticeBoard/NoticeBoard';
 
 const Home = () => {
     return (
         <div>
-            <h1>Home Page</h1>
+            <NoticeBoard></NoticeBoard>
+            <h1>heo</h1>
         </div>
     );
 };

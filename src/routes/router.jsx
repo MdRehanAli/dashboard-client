@@ -3,6 +3,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import Loading from "../components/Loading/Loading";
 import Home from "../pages/Home/Home/Home";
 import NoticeBoard from "../pages/NoticeBoard/NoticeBoard";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -13,10 +14,15 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
+
             },
             {
-                path: 'noticeBoard',
+                path: '/notice-board',
                 Component: NoticeBoard,
+            },
+            {
+                path: '/*',
+                Component: ErrorPage,
             },
         ]
     }

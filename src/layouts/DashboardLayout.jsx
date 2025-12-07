@@ -1,17 +1,13 @@
 import React from 'react';
-import { Outlet } from 'react-router';
-import Sidebar from '../pages/shared/Sidebar/Sidebar';
-import Navbar from '../pages/shared/Navbar/navbar';
+import Dashboard from '../pages/shared/Dashboard/Dashboard';
+
+const dashboardPromise = fetch('/dashboard.js').then(res => res.json());
 
 const DashboardLayout = () => {
     return (
         <div className='max-w-7xl mx-auto w-11/12'>
             <div className='flex'>
-                <Sidebar></Sidebar>
-                <div>
-                    <Navbar></Navbar>
-                    <Outlet></Outlet>
-                </div>
+                <Dashboard dashboardPromise={dashboardPromise}></Dashboard>
             </div>
         </div>
     );
