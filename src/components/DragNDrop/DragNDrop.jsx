@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import upload from '../../assets/upload.png'
-import link from '../../assets/link.png'
-import cross from '../../assets/delete.png'
+// import link from '../../assets/link.png'
+// import cross from '../../assets/delete.png'
 
 const DragNDrop = () => {
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone();

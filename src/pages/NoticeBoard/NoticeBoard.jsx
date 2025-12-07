@@ -86,8 +86,13 @@ const NoticeBoard = () => {
                                         <label className="label text-[14px] text-black mb-2"><span className="text-red-600">*</span> Notice Type</label>
                                         <select {...register('noticeType', { required: true })} defaultValue="Pick a Department" className="select w-full">
                                             <option disabled={true}>Select Notice Type</option>
-                                            <option value="leave">Leave</option>
-                                            <option value="bonus">Bonus</option>
+                                            <option value="Warning / Disciplinary">Warning / Disciplinary</option>
+                                            <option value="Performance Improvement">Performance Improvement</option>
+                                            <option value="Appreciation / Recognition">Appreciation / Recognition</option>
+                                            <option value="Attendance / Leave Issue">Attendance / Leave Issue</option>
+                                            <option value="Payroll / Compensation">Payroll / Compensation</option>
+                                            <option value="Contract / Role Update">Contract / Role Update</option>
+                                            <option value="Advisory / Personal Reminder">Advisory / Personal Reminder</option>
                                         </select>
                                     </fieldset>
                                 </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import NoticeBoard from '../../NoticeBoard/NoticeBoard';
-import NoticeManageMent from '../NoticeManageMent/NoticeManageMent';
+import NoticeManageMent from '../../NoticeManageMent/NoticeManageMent';
 
 const Home = () => {
     return (

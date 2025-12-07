@@ -4,6 +4,7 @@ import Loading from "../components/Loading/Loading";
 import Home from "../pages/Home/Home/Home";
 import NoticeBoard from "../pages/NoticeBoard/NoticeBoard";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Employee from "../pages/Employee/Employee";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: '/notice-board',
                 Component: NoticeBoard,
+            },
+            {
+                path: '/employee',
+                Component: Employee,
             },
             {
                 path: '/*',
